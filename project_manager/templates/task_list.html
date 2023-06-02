@@ -1,0 +1,122 @@
+<!-- In task_list.html -->
+{% extends 'base.html' %}
+
+<style>
+    .task-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .task-table th,
+    .task-table td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .task-table tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .task-table th {
+      background-color: #f2f2f2;
+      text-align: left;
+    }
+    </style>
+    
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr>
+          <td>{{ task.title }}</td>
+          <!-- <td>{{ task.get_priority_display }}</td> -->
+          <!-- <td>{{ task.get_status_display }}</td> -->
+          <td><span class="priority {{ task.priority|lower }}">{{ task.get_priority_display }}</span></td>
+          <td><span class="status {{ task.status|lower }}">{{ task.get_status_display }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} - Priority: {{ task.priority }} - Progress: {{ task.status }}
+        </li>
+    {% endfor %}
+</ul> -->
+
+<!-- <ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }} - Priority: {{ task.get_priority_display }} - Status:
+            <span class="status {{ task.status|lower }}">{{ task.get_status_display }}</span>
+        </li>
+    {% endfor %}
+</ul> -->
+<style>
+    .status {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    .status.started {
+      background-color: #f0ad4e;
+      color: #fff;
+    }
+    
+    .status.inprogress {
+      background-color: #5bc0de;
+      color: #fff;
+    }
+    
+    .status.done {
+      background-color: #5cb85c;
+      color: #fff;
+    }
+
+    .priority {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    
+    .priority.STARTED {
+      background-color: #f0ad4e;
+      color: #fff;
+    }
+    
+    .status.INPROGRESS {
+      background-color: #5bc0de;
+      color: #fff;
+    }
+    
+    .status.DONE {
+      background-color: #5cb85c;
+      color: #fff;
+    }
+</style>
+    

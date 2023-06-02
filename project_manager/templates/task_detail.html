@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+<h2>Comments</h2>
+<ul>
+{% for comment in task.comments.all %}
+    <li>
+        <strong>{{ comment.user.username }}</strong>:
+        {{ comment.text }}
+    </li>
+{% empty %}
+    <li>No comments yet.</li>
+{% endfor %}
+</ul>
