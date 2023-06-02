@@ -3,3 +3,4 @@
 "# visit 127.0.0.1/admin " 
 "# username: admin password: admin " 
 "# manage your organization. Happy days! " 
+`py manage.py runserver`
